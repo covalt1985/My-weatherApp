@@ -13,6 +13,9 @@
         .container {
             margin-top: 15vh;
         }
+        a {
+            margin-top: 1rem;
+        }
     </style>
 </head>
 
@@ -21,11 +24,12 @@
         <div class="row">
             <div class="col s12">
                 <div class="row card medium col s6 offset-s3 grey lighten-5">
-                    <div class="input-field col s10 offset-s1">
+                    <div class="input-field col s10">
                         <i class="material-icons prefix">cloud</i>
-                        <input type="text" id="autocomplete-input" class="autocomplete">
-                        <label for="autocomplete-input">Wybierz miasto</label>
+                        <input id="city_name" type="text">
+                        <label for="city_name">Znajdź Miasto</label>
                     </div>
+                    <a class="waves-effect waves-light btn-small col s2">Szukaj</a>
                 </div>
             </div>
         </div>

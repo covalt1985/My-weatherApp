@@ -7,32 +7,39 @@
     <title>Document</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
-    <style>
-        .container {
-            margin-top: 15vh;
-        }
-        a {
-            margin-top: 1rem;
-        }
-    </style>
+
 </head>
 
 <body>
     <div class="container">
         <div class="row">
             <div class="col s12">
-                <div class="row card medium col s6 offset-s3 grey lighten-5">
-                    <div class="input-field col s10">
-                        <i class="material-icons prefix">cloud</i>
-                        <input id="city_name" type="text">
-                        <label for="city_name">Znajdź Miasto</label>
+                <div class="row">
+                    <div class=" card medium col s6 offset-s3 grey lighten-5">
+                        <div class="card-content">
+                            <div class="input-field col s10">
+                                <i class="material-icons prefix">cloud</i>
+                                <input id="city_name" type="text">
+                                <label for="city_name">Znajdź Miasto</label>
+                            </div>
+                            <div id="weather">
+                                <a class="waves-effect waves-light btn-small col s2">Szukaj</a>
+                                <p id="city" class="card-title">Gdańsk</p>
+                                <p id="conditions">Chmury</p>
+                                <div class="card-content" style="padding-top: 0">
+                                    <span class="degree col s2 offset-s5">5&#176</span>
+                                    <img class="col s4 offset-s1" src="./09d@2x.png">
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <a class="waves-effect waves-light btn-small col s2">Szukaj</a>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     <script src="index.js"></script>;

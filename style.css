@@ -1,0 +1,24 @@
+.container {
+    margin-top: 15vh;
+}
+
+a {
+    margin-top: 1em;
+}
+
+#city {
+    text-align: center;
+    font-weight: 400;
+    font-size: 2em;
+    margin-bottom: 0;
+    padding-top: 3.2em;
+}
+
+#conditions {
+    text-align: center;
+    font-size: 1em;
+}
+
+.degree {
+    font-size: 4em;
+}

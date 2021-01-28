@@ -27,3 +27,17 @@ a {
     padding-right: 0;
     padding-top: 0;
 }
+
+#background {
+    background: url(./bg.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.active {
+    color: black !important;
+}
+
+.city_name {
+    border-bottom: 1px solid black !important;
+    box-shadow: 0 1px 0 0 black !important;
+}

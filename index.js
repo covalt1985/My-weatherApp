@@ -1,32 +1,27 @@
 const input = document.querySelector('input');
-const button = document.querySelector('a');
-const weatherDiv = document.querySelector('#weather')
+const weatherDiv = document.querySelector('#weather');
 
-//toggles style when focusing input
+//toggles inputs style when focusing
 input.addEventListener('focusin', toggleClass);
 input.addEventListener('focusout', toggleClass);
 function toggleClass() {
     input.classList.toggle('city_name');
 };
 
-//events trigger func that fetches for weather
+//triggers function that fetch for weather
 input.addEventListener('keydown', (e) => {
     if (e.keyCode === 13) {
         fetchWeather(e.target.value);
-        weatherDiv.classList.add('scale-out')
+        weatherDiv.classList.add('scale-out');
     };
 });
-/* button.addEventListener('click', () => {
-    fetchWeather(input.value);
-    weatherDiv.classList.add('scale-out');
-}); */
 
 async function fetchWeather(city) {
     try {
         const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=c09e360baf439a72fb2afb607f153694`);
         input.value = '';
         console.log(response.data);
-        createElements(response.data)
+        createElements(response.data);
     }
     catch (error) {
         if (error.response) {
@@ -51,19 +46,14 @@ function createElements({ main, name, weather }) {
     max:  ${Math.round(main.temp_max)}&#176  &nbsp  min:  ${Math.round(main.temp_min)}&#176</p></div>
     </div>
     </div>
-    `
+    `;
     weatherDiv.classList.remove('scale-out');
 };
 
-//for future purpose
-function createWidget({ main, name }) {
-    console.log('feels like:', Math.round(main.feels_like));
-    console.log(name);
-};
-
+//shows clients country weather on startup
 window.addEventListener('DOMContentLoaded', () => {
     weatherDiv.classList.add('scale-out');
-    async function getIP() {
+    async function getLocation() {
         try {
             const ip = await axios.get('https://api.ipify.org/')
             const location = await axios.get(`http://api.ipstack.com/${ip.data}?access_key=2aa0ad6c48283a995770a0dfc8a2602d`)
@@ -75,9 +65,13 @@ window.addEventListener('DOMContentLoaded', () => {
             };
         };
     };
-    getIP();
+    getLocation();
 });
 
-
+//for future purpose
+/* function createWidget({ main, name }) {
+    console.log('feels like:', Math.round(main.feels_like));
+    console.log(name);
+}; */
 
 

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -18,12 +19,15 @@
         <div class="row">
             <div class="col s10">
                 <div class="row">
-                    <div id="background" class=" card medium col s6 offset-s3 grey lighten-5">
+                    <div id="background" class=" card medium col s6 offset-s3">
                         <div class="card-content">
-                            <div class="input-field col s10 offset-s1">
+                            <div class="input-field col s10 push-s1">
                                 <i class="material-icons prefix">cloud</i>
                                 <input id="city_name" type="text">
-                                <label for="city_name">Znajdź Miasto</label>
+                                <label for="city_name">Find country or City</label>
+                            </div>
+                            <div id="preloader" class="col s1 pre-loader fa-2x" style="margin:0.5em 0 0 0.5em">
+                                <i class="fas fa-sync fa-spin"></i>
                             </div>
                             <div id="weather" class="scale-transition">
                             </div>
@@ -34,6 +38,7 @@
         </div>
     </div>
     </div>
+    
     <script src="index.js"></script>;
 </body>
 

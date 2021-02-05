@@ -31,17 +31,13 @@ async function fetchWeather(city) {
 
     catch (error) {
         if (error.response) {
-            weatherDiv.classList.remove('scale-out');
-
-            weatherDiv.innerHTML = `
-            <p id="city" class="card-title">${(error.response.data.message).toUpperCase()}</p>
-            <p style="text-align:center; margin-top:2em;">
-            <i class="material-icons prefix" style=" font-size: xxx-large;">cloud_off</i></p>
-            `;
-            preloader.classList.add('preloader');
+            requestProblem((error.response.data.message).toUpperCase())
+        }
+        else {
+            requestProblem('network problem')
         };
     };
-};
+}
 
 //creates html with fetched data
 async function createElements({ main, name, weather, coord }) {
@@ -78,6 +74,7 @@ window.addEventListener('DOMContentLoaded', () => {
             const location = await axios.get(`http://api.ipstack.com/${ip.data}?access_key=2aa0ad6c48283a995770a0dfc8a2602d`)
             const latLong = [Math.round(location.data.latitude), Math.round(location.data.longitude)]
             fetchWeather(location.data.location.capital);
+
         }
 
         catch (error) {
@@ -96,7 +93,19 @@ async function getCountry(lat, lng) {
         return countryName
     }
 
-    catch (error){
-            return ''
+    catch (error) {
+        return ''
     };
 };
+
+//maintains error at first call
+function requestProblem(message) {
+    weatherDiv.classList.remove('scale-out');
+
+    weatherDiv.innerHTML = `
+    <p id="city" class="card-title">${message}</p>
+    <p style="text-align:center; margin-top:2em;">
+    <i class="material-icons prefix" style=" font-size: xxx-large;">cloud_off</i></p>
+    `;
+    preloader.classList.add('preloader');
+}

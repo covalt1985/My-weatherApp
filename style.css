@@ -33,7 +33,9 @@ a {
 
 #background {
     background: url(./bg.jpg) no-repeat center center;
-    background-size: cover;
+    background-size: 110% 150%;
+    border-radius: 2%;
+    box-shadow: 3px 2px 10px black ;
 }
 
 .active {
